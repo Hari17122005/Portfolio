@@ -24,6 +24,28 @@
   100% { background-position: 200% center; }
 }
 
+@keyframes colorCycle {
+  0% { background-color: rgba(139, 92, 246, 0.5); box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+  33% { background-color: rgba(14, 165, 233, 0.5); box-shadow: 0 0 40px rgba(14, 165, 233, 0.8); }
+  66% { background-color: rgba(217, 70, 239, 0.5); box-shadow: 0 0 40px rgba(217, 70, 239, 0.8); }
+  100% { background-color: rgba(139, 92, 246, 0.5); box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+}
+
+@keyframes navGlowCycle {
+  0% { background-color: #8b5cf6; box-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6; }
+  33% { background-color: #0ea5e9; box-shadow: 0 0 10px #0ea5e9, 0 0 20px #0ea5e9; }
+  66% { background-color: #d946ef; box-shadow: 0 0 10px #d946ef, 0 0 20px #d946ef; }
+  100% { background-color: #8b5cf6; box-shadow: 0 0 10px #8b5cf6, 0 0 20px #8b5cf6; }
+}
+
+.animate-glow-cycle {
+  animation: colorCycle 4s infinite linear;
+}
+
+.animate-nav-indicator {
+  animation: navGlowCycle 4s infinite linear;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -40,8 +40,8 @@ export function Starfield() {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: Math.random() * 1.5 + 0.5,
-          vx: (Math.random() - 0.5) * 0.2, // Very slow drift
-          vy: (Math.random() - 0.5) * 0.2,
+          vx: (Math.random() - 0.5) * 0.5, // Faster drift
+          vy: (Math.random() - 0.5) * 0.5,
           alpha: Math.random() * 0.5 + 0.3, // Baseline alpha
         });
       }
@@ -79,8 +79,8 @@ export function Starfield() {
           
           if (mouseDist < mouseConnectionDistance) {
             // Subtle pull towards mouse
-            displayX += dx * 0.02;
-            displayY += dy * 0.02;
+            displayX += dx * 0.05;
+            displayY += dy * 0.05;
           }
         }
 
@@ -115,8 +115,8 @@ export function Starfield() {
               if (mouseX !== -1 && mouseY !== -1) {
                   const mdx = mouseX - otherStar.x;
                   const mdy = mouseY - otherStar.y;
-                  otherDisplayX += mdx * 0.02;
-                  otherDisplayY += mdy * 0.02;
+                  otherDisplayX += mdx * 0.05;
+                  otherDisplayY += mdy * 0.05;
               }
 
               ctx.lineTo(otherDisplayX, otherDisplayY);

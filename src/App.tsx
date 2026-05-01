@@ -1,6 +1,8 @@
+/// <reference types="vite/client" />
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform, useMotionValue } from 'motion/react';
 import { Starfield } from './components/Starfield';
+
 import { 
   Linkedin, 
   Mail, 
@@ -69,9 +71,9 @@ const projectsData = [
     liveUrl: "#",
     githubUrl: "https://github.com/Hari17122005/road-crack-detection.git",
     images: [
-      "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
+      "https://i.ibb.co/mrR7JqYv/IMG-20260125-WA0022.jpg",
+      "https://i.ibb.co/v6sxKyv8/Screenshot-2026-05-01-215823.png",
+      "https://i.ibb.co/qYFXpt5M/Screenshot-2026-05-01-220006.png"
     ]
   },
   {
@@ -82,9 +84,9 @@ const projectsData = [
     liveUrl: "https://hhmart.netlify.app/",
     githubUrl: "https://github.com/Hari17122005/Hmart.git",
     images: [
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
+      "https://i.ibb.co/5x2KWC78/Screenshot-2026-05-01-214949.png",
+      "https://i.ibb.co/MDkThZ5S/Screenshot-2026-05-01-215117.png",
+      "https://i.ibb.co/NfCSc6P/Screenshot-2026-05-01-215229.png"
     ]
   },
   {
@@ -95,9 +97,9 @@ const projectsData = [
     liveUrl: "https://ecoroad.netlify.app/",
     githubUrl: "https://github.com/Hari17122005/Eco-Road.git",
     images: [
-      "/screenshot_1.png",
-      "/screenshot_2.png",
-      "/screenshot_3.png"
+      "https://i.ibb.co/k2z65z2B/screenshot-1.png",
+      "https://i.ibb.co/FqC9qFkL/screenshot-2.png",
+      "https://i.ibb.co/1YP92sLy/screenshot-3.png"
     ]
   },
   {
@@ -108,14 +110,14 @@ const projectsData = [
     liveUrl: "https://nexflow-ops.netlify.app/",
     githubUrl: "https://github.com/Hari17122005/Collab-AI.git",
     images: [
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+      "https://i.ibb.co/GvJ12Crz/Screenshot-2026-05-01-214733.png",
+      "https://i.ibb.co/ZkDBsGY/Screenshot-2026-05-01-214807.png",
+      "https://i.ibb.co/6J8jxych/Screenshot-2026-05-01-214824.png"
     ]
   }
 ];
 
-export function TechBadge({ name, delay = 0 }: { name: string, delay?: number }) {
+export const TechBadge: React.FC<{ name: string, delay?: number }> = ({ name, delay = 0 }) => {
   const iconUrl = devIcons[name];
   return (
     <motion.div 
@@ -204,7 +206,7 @@ function ProjectCard({ project, idx }: { project: any, idx: number }) {
       </div>
 
       <div className="w-full lg:w-[45%] flex flex-col gap-6 justify-center z-10" style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}>
-        <div className="relative w-full h-56 md:h-72 rounded-[1.5rem] overflow-hidden shadow-2xl border border-white/10 group-hover:border-brand-primary/50 group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-700">
+        <div className="relative w-full aspect-video rounded-[1.5rem] overflow-hidden shadow-2xl border border-white/10 group-hover:border-brand-primary/50 group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-700">
            {project.images.map((img: string, i: number) => (
              <motion.img 
                key={i}
@@ -213,7 +215,7 @@ function ProjectCard({ project, idx }: { project: any, idx: number }) {
                initial={{ opacity: 0, scale: 1.05 }}
                animate={{ opacity: i === imgIdx ? 1 : 0, scale: i === imgIdx ? 1 : 1.05 }}
                transition={{ duration: 1.2, ease: "easeInOut" }}
-               className={`absolute inset-0 w-full h-full ${project.title === 'EcoRoad' ? 'object-contain bg-slate-900/50' : 'object-cover'}`}
+               className={`absolute inset-0 w-full h-full object-cover`}
              />
            ))}
            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
@@ -293,9 +295,9 @@ export default function App() {
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <nav className="w-full max-w-3xl glass-panel rounded-full transition-all duration-500 bg-slate-950/70 pointer-events-auto backdrop-blur-2xl">
           <div className="px-8 py-4 flex justify-center md:justify-between items-center">
-            <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.8)] transition-all duration-500 cursor-pointer relative group overflow-hidden bg-slate-900/50">
-              <div className="absolute inset-0 bg-brand-primary/20 blur-xl rounded-full animate-pulse opacity-50 group-hover:opacity-100 transition-opacity" />
-              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain relative z-10 scale-[2.2] translate-y-1 group-hover:scale-[2.5] transition-transform duration-500" />
+            <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 shadow-[0_0_20px_rgba(139,92,246,0.3)] animate-glow-cycle transition-all duration-500 cursor-pointer relative group overflow-hidden bg-slate-900/50">
+              <div className="absolute inset-0 bg-brand-primary/20 blur-xl rounded-full animate-pulse opacity-50 group-hover:opacity-100 transition-opacity animate-glow-cycle" />
+              <img src="https://i.ibb.co/5WLrfpnh/logo.png" alt="Logo" className="w-full h-full object-contain relative z-10 scale-[2.2] translate-y-1 group-hover:scale-[2.5] transition-transform duration-500" />
             </div>
             <div className="flex space-x-6 md:space-x-10 text-sm font-medium">
               {navLinks.map((link) => (
@@ -303,7 +305,7 @@ export default function App() {
                   key={link}
                   href={`#${link}`} 
                   onClick={(e) => scrollToSection(e, link)}
-                  className={`relative capitalize transition-all ${
+                  className={`relative capitalize transition-all duration-300 ${
                     activeSection === link ? 'text-white' : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -311,7 +313,7 @@ export default function App() {
                   {activeSection === link && (
                     <motion.div 
                       layoutId="nav-indicator"
-                      className="absolute -bottom-4 left-0 right-0 h-[2px] bg-brand-primary rounded-t-full shadow-[0_0_10px_rgba(139,92,246,0.8)]"
+                      className="absolute -bottom-4 left-0 right-0 h-[2px] rounded-t-full shadow-[0_0_10px_rgba(139,92,246,0.8)] animate-nav-indicator"
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -382,7 +384,7 @@ export default function App() {
               
               <img 
                 // To change this photo: Add your own photo in the public folder and change 'src="/my-photo.jpg"' or paste an image URL.
-                src="/my-photo.png" 
+                src="https://i.ibb.co/zTSz8q97/my-photo.png" 
                 alt="Hariharan T" 
                 className="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/10 shadow-[0_0_40px_rgba(139,92,246,0.3)] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-brand-primary/50 group-hover:shadow-[0_0_60px_rgba(139,92,246,0.5)]"
               />
@@ -511,7 +513,7 @@ export default function App() {
               <h2 className="font-heading font-extrabold text-3xl text-gradient drop-shadow-md pb-2">Education</h2>
             </div>
             
-            <motion.div variants={fadeInUp} className="relative pl-10 border-l-2 border-brand-secondary/30 pb-16 group">
+            <motion.div variants={fadeInUp} className="relative pl-10 border-l-2 border-brand-secondary/30 pb-4 mb-16 group">
               <div className="absolute w-5 h-5 bg-slate-950 border-[3px] border-brand-secondary rounded-full -left-[11px] top-1 group-hover:bg-brand-secondary transition-colors shadow-[0_0_15px_rgba(14,165,233,0.6)]" />
               <h3 className="font-heading font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 leading-tight pb-1">B.Tech Information Technology</h3>
               <p className="text-brand-secondary font-medium text-lg mt-1 mb-4">Sri Sairam Engineering College</p>
