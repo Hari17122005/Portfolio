@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring, useTransform, useMotionValue } from 'motion/react';
 import { Starfield } from './components/Starfield';
+import logoImg from './assets/logo.png';
+import myPhoto from './assets/my-photo.png';
+import eco1 from './assets/ecoroad/screenshot_1.png';
+import eco2 from './assets/ecoroad/screenshot_2.png';
+import eco3 from './assets/ecoroad/screenshot_3.png';
 import { 
   Linkedin, 
   Mail, 
@@ -95,9 +100,9 @@ const projectsData = [
     liveUrl: "https://ecoroad.netlify.app/",
     githubUrl: "https://github.com/Hari17122005/Eco-Road.git",
     images: [
-      "/ecoroad/Screenshot 2026-05-01 180425.png",
-      "/ecoroad/Screenshot 2026-05-01 180523.png",
-      "/ecoroad/Screenshot 2026-05-01 180541.png"
+      eco1,
+      eco2,
+      eco3
     ]
   },
   {
@@ -295,7 +300,7 @@ export default function App() {
           <div className="px-8 py-4 flex justify-center md:justify-between items-center">
             <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/10 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.8)] transition-all duration-500 cursor-pointer relative group overflow-hidden bg-slate-900/50">
               <div className="absolute inset-0 bg-brand-primary/20 blur-xl rounded-full animate-pulse opacity-50 group-hover:opacity-100 transition-opacity" />
-              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain relative z-10 scale-[2.2] translate-y-1 group-hover:scale-[2.5] transition-transform duration-500" />
+              <img src={logoImg} alt="Logo" className="w-full h-full object-contain relative z-10 scale-[2.2] translate-y-1 group-hover:scale-[2.5] transition-transform duration-500" />
             </div>
             <div className="flex space-x-6 md:space-x-10 text-sm font-medium">
               {navLinks.map((link) => (
@@ -382,7 +387,7 @@ export default function App() {
               
               <img 
                 // To change this photo: Add your own photo in the public folder and change 'src="/my-photo.jpg"' or paste an image URL.
-                src="/my-photo.png" 
+                src={myPhoto} 
                 alt="Hariharan T" 
                 className="relative z-10 w-full h-full object-cover rounded-full border-4 border-white/10 shadow-[0_0_40px_rgba(139,92,246,0.3)] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-brand-primary/50 group-hover:shadow-[0_0_60px_rgba(139,92,246,0.5)]"
               />
