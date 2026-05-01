@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400..700&family=Quicksand:wght@400..700&family=Plus+Jakarta+Sans:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-stylized: "Comfortaa", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #8b5cf6;
+  --color-brand-secondary: #0ea5e9;
+}
+
+@utility text-gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-fuchsia-400 to-brand-secondary drop-shadow-[0_0_15px_rgba(139,92,246,0.4)];
+}
+
+@utility text-gradient-animated {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-brand-primary to-fuchsia-500 drop-shadow-[0_0_20px_rgba(139,92,246,0.6)];
+  background-size: 200% auto;
+  animation: textShimmer 4s linear infinite;
+}
+
+@keyframes textShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-950 text-slate-200 antialiased overflow-x-hidden;
+  background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 70%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  @apply bg-slate-900/30 backdrop-blur-2xl border border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)];
+}
+
+.card-hover-effect {
+  @apply hover:shadow-[0_8px_30px_rgb(139,92,246,0.15)] hover:border-brand-primary/40 transition-all duration-500;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; /* slate-900 */
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; /* slate-700 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; /* slate-600 */
+}
