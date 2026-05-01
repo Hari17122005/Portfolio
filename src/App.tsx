@@ -3,9 +3,9 @@ import { motion, useScroll, useSpring, useTransform, useMotionValue } from 'moti
 import { Starfield } from './components/Starfield';
 import logoImg from './assets/logo.png';
 import myPhoto from './assets/my-photo.png';
-import eco1 from './assets/ecoroad/screenshot_1.png';
-import eco2 from './assets/ecoroad/screenshot_2.png';
-import eco3 from './assets/ecoroad/screenshot_3.png';
+import eco1 from './assets/screenshot_1.png';
+import eco2 from './assets/screenshot_2.png';
+import eco3 from './assets/screenshot_3.png';
 import { 
   Linkedin, 
   Mail, 
